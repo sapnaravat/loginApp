@@ -18,7 +18,6 @@ public class AuthenticationService {
         UserVO user = userRepo.findByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
             String token = tokenGenerator.generateToken(user);
-            // Save the token in the database or cache
             return token;
         }
         return null;

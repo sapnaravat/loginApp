@@ -9,6 +9,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,4 +22,8 @@ public class UserVO implements Serializable {
     @Column(unique = true)
     private String username;
     private String password;
+
+    public List<RoleVO> getRoles() {
+        return null;
+    }
 }

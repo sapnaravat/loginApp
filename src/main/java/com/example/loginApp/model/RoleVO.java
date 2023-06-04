@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -16,4 +18,8 @@ public class RoleVO {
     private Long id;
 
     private String name;
+
+    public List<PermissionVO> getPermissions() {
+        return null;
+    }
 }
