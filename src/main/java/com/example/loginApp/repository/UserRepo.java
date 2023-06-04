@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepo extends JpaRepository<UserVO , Long> {
     UserVO findByUsername(String username);
+
+    UserVO findByToken(String token);
 }
