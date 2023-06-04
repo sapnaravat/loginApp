@@ -2,7 +2,9 @@ package com.example.loginApp.service;
 
 import com.example.loginApp.model.UserVO;
 import com.example.loginApp.repository.UserRepo;
+import org.springframework.stereotype.Component;
 
+@Component
 public class APIAccessControl {
     private final UserRepo userRepo;
 
