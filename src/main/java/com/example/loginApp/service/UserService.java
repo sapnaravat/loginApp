@@ -17,7 +17,7 @@ public class UserService {
     }
 
     public UserVO getUserByUserName(String username){
-        return userRepo.findByUsr_name(username);
+        return userRepo.findByUsername(username);
     }
 
     public void saveOrUpdateUser(UserVO user) {

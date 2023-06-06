@@ -18,7 +18,7 @@ public class UserVO implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(unique = true)
-    private String usr_name;
+    private String username;
 
     @Column
     private String password;

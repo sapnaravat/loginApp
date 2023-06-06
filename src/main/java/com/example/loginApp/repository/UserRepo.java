@@ -11,5 +11,5 @@ public interface UserRepo extends JpaRepository<UserVO ,Integer> {
 
     UserVO findByToken(String token);
 
-    UserVO findByUsr_name(String username);
+    UserVO findByUsername(String username);
 }
