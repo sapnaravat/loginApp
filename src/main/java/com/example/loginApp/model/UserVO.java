@@ -3,10 +3,8 @@ package com.example.loginApp.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -14,14 +12,20 @@ import java.util.List;
 @Getter
 @Setter
 public class UserVO implements Serializable {
+
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     @Column(unique = true)
-    private String username;
+    private String usr_name;
+
+    @Column
     private String password;
 
-    public List<RoleVO> getRoles() {
-        return null;
-    }
+    @Column
+    private String token;
+
+    @Column
+    private int roleId;
 }

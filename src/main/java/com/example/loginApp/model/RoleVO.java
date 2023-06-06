@@ -1,12 +1,8 @@
 package com.example.loginApp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
@@ -16,12 +12,14 @@ import java.util.List;
 @Setter
 public class RoleVO {
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
+    @Column
     private String name;
 
-    public List<PermissionVO> getPermissions() {
-        return null;
-    }
+     @Column
+     private int permissionId;
+
 }

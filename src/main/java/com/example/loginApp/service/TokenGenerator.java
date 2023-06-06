@@ -10,7 +10,7 @@ public class TokenGenerator {
     private static final int TOKEN_LENGTH = 32;
 
     public String generateToken(UserVO user) {
-        String seed = user.getId() + user.getUsername() ;
+        String seed = user.getId() + user.getUsr_name() ;
         byte[] seedBytes = seed.getBytes();
 
         SecureRandom secureRandom = new SecureRandom(seedBytes);

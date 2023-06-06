@@ -1,23 +1,32 @@
 package com.example.loginApp.service;
 
+import com.example.loginApp.model.PermissionVO;
+import com.example.loginApp.model.RoleVO;
 import com.example.loginApp.model.UserVO;
 import com.example.loginApp.repository.UserRepo;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class APIAccessControl {
-    private final UserRepo userRepo;
+    @Autowired
+    UserService userService;
 
-    public APIAccessControl(UserRepo userRepo) {
-        this.userRepo = userRepo;
-    }
+    @Autowired
+     RoleService roleService;
 
+    @Autowired
+     PermissionService permissionService;
+    @Bean
     public boolean hasPermission(String token, String permission) {
-        UserVO user = userRepo.findByToken(token);
+        UserVO user = userService.getUserByToken(token);
         if (user != null) {
-            return user.getRoles().stream()
-                    .flatMap(role -> role.getPermissions().stream())
-                    .anyMatch(p -> p.getName().equals(permission));
+            RoleVO roleVO = roleService.getRoleById(user.getRoleId());
+            PermissionVO permissionVO =permissionService.getPermissioById(roleVO.getPermissionId());
+            if(permissionVO.getName().equals(permission)){
+                return true;
+            }
         }
         return false;
     }
